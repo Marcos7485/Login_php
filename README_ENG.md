@@ -1,4 +1,4 @@
-Project Documentation
+Project Documentation:
 This documentation provides an overview of the structure and functionality of the project, detailing the key files and classes used in the application. The project is intended to be a web application that allows users to register, log in, and manage their profiles.
 
 Main Files
