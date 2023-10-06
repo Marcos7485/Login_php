@@ -1,87 +1,95 @@
-# Documentación del Proyecto
+# Project Documentation
 
-Esta documentación proporciona una visión general de la estructura y funcionalidad del proyecto, detallando los archivos y clases clave utilizados en la aplicación. El proyecto está destinado a ser una aplicación web que permite a los usuarios registrarse, iniciar sesión y gestionar su perfil.
+This documentation provides an overview of the structure and functionality of the project, detailing the key files and classes used in the application. The project is intended to be a web application that allows users to register, log in, and manage their profiles.
 
-## Archivos Principales
+## Main Files
 
 ### `config.php`
 
-- **Funcionalidad:** Este archivo almacena variables globales, como claves y contraseñas privadas utilizadas en el proyecto. Es común en proyectos PHP tener un archivo de configuración centralizado para gestionar estas variables.
+- **Functionality:** This file stores global variables, such as keys and private passwords used in the project. It is common in PHP projects to have a centralized configuration file to manage these variables.
 
-### `Estructura`
+### `Directory Structure`
 
-- **Funcionalidad:** El directorio core/ es una parte esencial de la estructura de directorios de este proyecto. Contiene varios subdirectorios y archivos clave que desempeñan un papel fundamental en el funcionamiento de la aplicación. Aquí está una descripción detallada de cada elemento:
+- **Functionality:** The `core/` directory is an essential part of the directory structure of this project. It contains various subdirectories and key files that play a fundamental role in the operation of the application. Here is a detailed description of each element:
 
-core/classes/: En esta subcarpeta, se encuentran clases PHP que encapsulan la funcionalidad esencial de la aplicación. Estas clases proporcionan métodos y lógica de programación para diferentes aspectos de la aplicación, como la base de datos, el envío de correos electrónicos, funciones generales y la gestión de usuarios.
+#### `core/classes/`:
+In this subfolder, you'll find PHP classes that encapsulate the essential functionality of the application. These classes provide methods and programming logic for different aspects of the application, such as the database, email sending, general functions, and user management.
 
-core/controllers/: Aquí, se almacenan controladores que manejan las diferentes acciones y solicitudes que los usuarios pueden realizar en la aplicación. El controlador principal (Main.php) es responsable de gestionar acciones como mostrar la página de inicio, el panel de usuario, el registro de usuarios y el inicio de sesión.
+#### `core/controllers/`:
+Here, controllers that handle different actions and requests that users can make in the application are stored. The main controller (`Main.php`) is responsible for managing actions such as displaying the home page, user panel, user registration, and login.
 
-core/views/: Esta subcarpeta contiene las vistas HTML que definen la interfaz de usuario de la aplicación. Cada archivo de vista corresponde a una página o sección específica de la aplicación y se utiliza para mostrar información y contenido al usuario.
+#### `core/views/`:
+This subfolder contains HTML views that define the user interface of the application. Each view file corresponds to a specific page or section of the application and is used to display information and content to the user.
 
-core/rotas.php: El archivo rotas.php desempeña un papel crucial en la gestión de las rutas y la asignación de solicitudes de URL a controladores y métodos específicos. Define las rutas disponibles en la aplicación y especifica cómo se deben manejar las solicitudes entrantes.
+#### `core/rotas.php`:
+The `rotas.php` file plays a crucial role in managing routes and mapping URL requests to specific controllers and methods. It defines the available routes in the application and specifies how incoming requests should be handled.
 
-DATABASE/: Dentro de esta carpeta, se encuentra una copia de seguridad del banco de datos utilizado por la aplicación. Esta copia de seguridad puede ser esencial para la recuperación de datos en caso de fallos o pérdida de información.
+#### `DATABASE/`:
+Inside this folder, there is a backup of the database used by the application. This backup can be essential for data recovery in case of failures or data loss.
 
-assets/: Aquí se almacenan los archivos estáticos utilizados en la aplicación, como hojas de estilo (CSS) y archivos de JavaScript (JS). Estos archivos son responsables de dar formato y funcionalidad a la interfaz de usuario.
+#### `assets/`:
+Here, static files used in the application, such as stylesheets (CSS) and JavaScript files (JS), are stored. These files are responsible for formatting and adding functionality to the user interface.
 
-src/: La carpeta src/ contiene todos los archivos multimedia utilizados en la aplicación. Esto incluye imágenes, videos u otros recursos que se utilizan para enriquecer el contenido visual de la aplicación.
+#### `src/`:
+The `src/` folder contains all multimedia files used in the application. This includes images, videos, or other resources used to enhance the visual content of the application.
 
-vendor/: Esta carpeta es específica de Composer, una herramienta de gestión de dependencias en PHP. Aquí se almacenan las bibliotecas y dependencias de terceros que se utilizan en el proyecto. Composer facilita la incorporación y actualización de bibliotecas externas en el proyecto.
+#### `vendor/`:
+This folder is specific to Composer, a PHP dependency management tool. It stores third-party libraries and dependencies used in the project. Composer facilitates the incorporation and updating of external libraries into the project.
 
 ### `index.php`
 
-- **Funcionalidad:** Este archivo inicia una sesión de PHP para mantener información entre diferentes solicitudes del usuario. También requiere el archivo 'config.php' para cargar configuraciones y variables de entorno, y 'vendor/autoload.php' para cargar las dependencias del proyecto (bibliotecas de terceros instaladas a través de Composer). Además, requiere el archivo 'core/rotas.php' para definir las rutas y controladores de la aplicación.
+- **Functionality:** This file initiates a PHP session to maintain information between different user requests. It also requires the `config.php` file to load configurations and environment variables and `vendor/autoload.php` to load project dependencies (third-party libraries installed via Composer). Additionally, it requires the `core/rotas.php` file to define the routes and controllers of the application.
 
-## Rutas y Controladores
+## Routes and Controllers
 
 ### `core/rotas.php`
 
-- **Funcionalidad:** Este archivo define las rutas de la aplicación en un array llamado `$rotas`. Cada clave del array es el nombre de una ruta, y el valor asociado es una cadena que sigue el formato 'controlador@método'. Esto se utiliza para mapear una ruta a un controlador y un método específicos en el código. Además, establece una acción por defecto como 'inicio' y maneja la ejecución de las acciones en función de la URL proporcionada.
+- **Functionality:** This file defines the application's routes in an array called `$rotas`. Each array key is the name of a route, and the associated value is a string following the format 'controller@method.' This is used to map a route to a specific controller and method in the code. It also sets a default action as 'inicio' (start) and handles the execution of actions based on the provided URL.
 
-### Controladores en `core/controllers/`
+### Controllers in `core/controllers/`
 
-- **Funcionalidad:** Los controladores, como `Main.php`, manejan diferentes acciones de la aplicación, como mostrar la página de inicio, el panel de usuario, el registro de usuarios y el inicio de sesión. Cada controlador define métodos para realizar estas acciones y utiliza la función `Layout` para cargar las vistas correspondientes.
+- **Functionality:** Controllers, such as `Main.php`, handle different actions of the application, such as displaying the home page, user panel, user registration, and login. Each controller defines methods to perform these actions and uses the `Layout` function to load the corresponding views.
 
-## Clases de Utilidad
+## Utility Classes
 
 ### `core/classes/Database.php`
 
-- **Funcionalidad:** Esta clase encapsula la funcionalidad de acceso a la base de datos. Proporciona métodos para realizar operaciones CRUD (select, insert, update, delete) en la base de datos, así como un método genérico para ejecutar consultas SQL personalizadas. La clase maneja la conexión y desconexión de la base de datos de manera interna.
+- **Functionality:** This class encapsulates database access functionality. It provides methods for performing CRUD operations (select, insert, update, delete) on the database, as well as a generic method for executing custom SQL queries. The class handles database connection and disconnection internally.
 
 ### `core/classes/EnviarEmail.php`
 
-- **Funcionalidad:** Esta clase encapsula la funcionalidad de envío de correos electrónicos. Utiliza la biblioteca PHPMailer para enviar correos electrónicos, incluyendo mensajes de confirmación a nuevos usuarios. Proporciona métodos para enviar correos electrónicos con diferentes propósitos.
+- **Functionality:** This class encapsulates email sending functionality. It uses the PHPMailer library to send emails, including confirmation messages to new users. It provides methods for sending emails for various purposes.
 
 ### `core/classes/Functions.php`
 
-- **Funcionalidad:** Esta clase proporciona varias funciones útiles comunes en una aplicación web, incluyendo la gestión de vistas, verificación de inicio de sesión, redirección de URLs, cifrado y generación de cadenas aleatorias. Estas funciones pueden ser utilizadas en una aplicación PHP para realizar tareas comunes de manera más eficiente.
+- **Functionality:** This class provides various useful functions commonly used in a web application, including view management, login verification, URL redirection, encryption, and random string generation. These functions can be used in a PHP application to perform common tasks more efficiently.
 
 ### `core/classes/Users.php`
 
-- **Funcionalidad:** Esta clase encapsula funcionalidades relacionadas con los usuarios en la aplicación. Proporciona métodos para verificar la existencia de una dirección de correo electrónico en la base de datos, registrar nuevos usuarios, validar direcciones de correo electrónico, verificar credenciales de inicio de sesión y obtener información de usuarios.
+- **Functionality:** This class encapsulates user-related functionalities in the application. It provides methods to check the existence of an email address in the database, register new users, validate email addresses, verify login credentials, and retrieve user information.
 
-## Vistas
+## Views
 
-### Vistas en `core/views/`
+### Views in `core/views/`
 
-- **Funcionalidad:** Estas vistas representan las páginas HTML que se muestran al usuario. Cada vista está asociada a un controlador y contiene la interfaz de usuario correspondiente. Algunas vistas importantes incluyen `new_user.php` para el registro de usuarios, `sign_in.php` para el inicio de sesión y `user_panel.php` para mostrar la información del usuario.
+- **Functionality:** These views represent the HTML pages displayed to the user. Each view is associated with a controller and contains the corresponding user interface. Some important views include `new_user.php` for user registration, `sign_in.php` for login, and `user_panel.php` for displaying user information.
 
-### Vistas en `core/views/layouts/`
+### Views in `core/views/layouts/`
 
-- **Funcionalidad:** Estas vistas representan diseños comunes utilizados en diferentes partes de la aplicación. Por ejemplo, `html_header.php` define la estructura básica de una página web con un encabezado y `html_footer.php` crea un pie de página que muestra información sobre el desarrollador.
+- **Functionality:** These views represent common layouts used in different parts of the application. For example, `html_header.php` defines the basic structure of a web page with a header, and `html_footer.php` creates a footer displaying information about the developer.
 
-## Archivos Estáticos
+## Static Files
 
-### Archivos en `public/assets/`
+### Files in `public/assets/`
 
-- **Funcionalidad:** Estos archivos contienen estilos (CSS) y scripts (JavaScript) utilizados en la aplicación. Incluyen `app.css` para estilos personalizados y bibliotecas como `bootstrap.min.css` y `bootstrap.min.js`.
+- **Functionality:** These files contain styles (CSS) and scripts (JavaScript) used in the application. They include `app.css` for custom styles and libraries like `bootstrap.min.css` and `bootstrap.min.js`.
 
 ## Multimedia
 
-### Archivos en `src/`
+### Files in `src/`
 
-- **Funcionalidad:** Estos archivos multimedia se utilizan en la aplicación para elementos como imágenes y videos.
+- **Functionality:** These multimedia files are used in the application for elements such as images and videos.
 
-## Conclusiones
+## Conclusions
 
-Este proyecto PHP se ha estructurado de manera organizada, utilizando controladores, clases de utilidad y vistas para gestionar las diferentes funcionalidades de la aplicación, como el registro de usuarios, el inicio de sesión, la gestión de perfiles y el envío de correos electrónicos. Además, se han utilizado bibliotecas de terceros como PHPMailer y Bootstrap para mejorar la funcionalidad y el diseño de la aplicación. La documentación proporcionada aquí sirve como referencia para comprender la estructura y funcionalidad del proyecto.
+This PHP project has been structured in an organized manner, utilizing controllers, utility classes, and views to manage different functionalities of the application, including user registration, login, profile management, and email sending. Additionally, third-party libraries like PHPMailer and Bootstrap have been used to enhance the functionality and design of the application. The documentation provided here serves as a reference for understanding the structure and functionality of the project.
