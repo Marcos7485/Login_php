@@ -1,0 +1,21 @@
+{
+    "name": "acer/php-back-end",
+    "description": "Register Login",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Acer\\PhpBackEnd\\": "src/",
+            "core\\" : "core/"
+            
+        }
+    },
+    "authors": [
+        {
+            "name": "MGonzalez"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.8",
+        "twbs/bootstrap": "4.1.3"
+    }
+}
